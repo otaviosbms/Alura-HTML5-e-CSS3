@@ -34,24 +34,55 @@ nav a:hover{
 }
 
 
+#banner {
+    width: 100%;
+}
+
+.principal{
+    background: gray;
+    padding: 30px;
+}
+
+.titulo-principal{
+    padding-left: 20px;
+}
+
+.titulo-centralizado{
+    text-align: center;
+}
+
+p {
+    text-align: center;
+}
+
+#missao {
+    font-size: 20px;
+}
+
+em strong {
+    color: red;
+}
+
+.itens{
+    font-style: italic;
+}
+
+.beneficios{
+    background-color: white;
+    padding: 20px;
+}
 
 
+ul{
+    display: inline-block;
+    vertical-align: top;
+    width: 20%;
+    margin-right: 15%;
+}
 
-
-
-
-
-/*fazer o estilo do meio do site denovo*/
-
-
-
-
-
-
-
-
-
-
+.imagembeneficios{
+    width: 50%;
+}
 
 footer{
     text-align: center;
@@ -65,5 +96,4 @@ footer{
     font-size: 13px;
     margin: 20px 0 0;
 }
-
 
