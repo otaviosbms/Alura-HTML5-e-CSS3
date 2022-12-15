@@ -8,7 +8,7 @@ function TocaSom (seletoraudio) {
     if(elemento /* != null */ && elemento.localName === 'audio'){   // && = and (no JS, não é necessario escrever que o elemento é diferente de null, pois o codigo já sabe que ele não existe)
         elemento.play();
     }
-   else(){
+   else{
     console.log('Elemento não encontrado ou seletor inválido')
    }
 }
