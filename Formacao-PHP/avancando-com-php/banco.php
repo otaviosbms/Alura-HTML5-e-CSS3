@@ -21,13 +21,8 @@ $contascorrentes = [
 
 ];
 
-
-$contascorrentes['123.456.789-13'] = [
-    'titular' => 'Claudia',
-    'saldo' => 2000
-];
-
+$contascorrentes['123.456.789-11']['saldo'] -= 500;
 
 foreach ($contascorrentes as $cpf => $conta){
-    echo $cpf." ".$conta['titular'] .PHP_EOL;
+    echo $cpf." ".$conta['titular']." ".$conta['saldo'].PHP_EOL;
 }
