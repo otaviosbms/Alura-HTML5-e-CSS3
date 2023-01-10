@@ -1,37 +1,11 @@
 <?php
 
-function exibemensagem(string $mensagem){
-    echo $mensagem .PHP_EOL;
-}
+// include -> usar para incluir aquivos complementeres no codigo, porem não necessarios.
+// require -> usar para incluir aquivos necessarios para o funcionamento do codigo. (hierarquia dos erros)
+// require/include_once -> especifica que o arquivo deve ser importado apenas uma vez, evitando erros caso ele seja mais de uma vez importado.
 
 
-function sacar(array $conta, float $valorasacar): array
-{
-    if ($valorasacar > $conta['saldo']){
-        exibemensagem('Voce não pode sacar');
-    }else{
-        $conta['saldo'] -= $valorasacar;
-    }
-    return $conta;
-}
-
-function depositar(array $conta, float $valoradepositar): array
-{
-    if ($valoradepositar > 0){
-        $conta['saldo'] += $valoradepositar;
-    }else{
-        exibemensagem('depositos precisam ser positivos');
-    }
-    
-    return $conta;
-}
-
-
-
-// utilizar o return no codigo de uma função faz com que a funcionalidade dela coniga ser armazenada em uma variavel. exp:   $var = funct();
-
-
-
+require 'funcoes.php';
 
 
 $contascorrentes = [
@@ -53,21 +27,61 @@ $contascorrentes = [
 
 ];
 
-
-
-
-
-
+// chamada das funções sacar, depositar e letras maiusculas
 
 $contascorrentes['123.456.789-12'] = sacar($contascorrentes['123.456.789-12'], 500);
 
 $contascorrentes['123.456.789-10'] = depositar($contascorrentes['123.456.789-10'], 500);
 
+titularcomletrasmaiusculas($contascorrentes['123.456.789-10']);
 
 
 
+// remove um item do array
+
+unset($contascorrentes['123.456.789-12']);
 
 
-foreach ($contascorrentes as $cpf => $conta){
-    exibemensagem($cpf." ".$conta['titular']." ".$conta['saldo']);
+// adiciona um item no array
+
+$contascorrentes['123.454.345.90'] = [
+    'titular' => 'Marcio',
+    'saldo' => 100000
+];
+
+
+//executador:
+
+/*echo "<ul>";
+
+foreach ($contascorrentes as $cpf => $conta) {
+    ['titular' => $titular, 'saldo' => $saldo] = $conta;
+    exibeconta($conta);
 }
+
+echo "</ul>";*/
+
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Contas Correntes:</h1>
+
+    <dl>
+        <?php foreach($contascorrentes as $cpf => $conta) { ?>
+        <dt>
+            <h3><?= $conta['titular']; ?> - <?= $cpf;?></h3>
+        </dt>
+        <dd>
+            Saldo: <?=$conta['saldo'];?>
+        </dd>
+        <?php } ?>
+    </dl>
+</body>
+</html>
