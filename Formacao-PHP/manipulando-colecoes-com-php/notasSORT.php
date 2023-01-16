@@ -1,11 +1,11 @@
 <?php
 
 $notas = [
-    'ana' => 10,
+    'ana' => '10',
     'joao' => 8,
     'maria' => 9,
     'roberto' => 7,
-    'vinicius' => 6
+    'vinicius' => null
 ];
 
 
@@ -28,3 +28,27 @@ $notas = [
 krsort($notas);
 
 var_dump($notas);
+
+
+// \/ VERIFICANDO VALORES \/
+
+// gettype() -> mostra o tipo da variavel | is_array() -> mostra se é um array.
+
+if(is_array($notas)){
+    echo 'sim, é um array'.PHP_EOL;
+}
+
+var_dump(array_is_list($notas)); // array_is_list() -> verifica se o array é numerico e não pula chaves (comportamento de lista)
+
+var_dump(array_key_exists('vinicius', $notas)); // array_key_exists(chave, $array) -> retorna se existe uma chave no array com os parametros indicados.
+
+echo 'ana fez a prova?'.PHP_EOL;
+var_dump(isset($notas ['ana'])); // isset() -> retorna se uma das chaves do array existe e tem um valor não nulo.
+
+echo 'alguem tirou 10?'.PHP_EOL;
+var_dump(in_array(10, $notas, true)); // in_array(item, $array, stirct: True/False) -> retorna se existe um valor especificado na função dentro do array, ignorando as chaves.
+                                      // strict -> procura estritamente se o tipo indicado está presente no array (== ou ===), podendo ser uma string, numero ou qualquer outro tipo.
+
+echo 'quem tirou 10?'.PHP_EOL;
+var_dump(array_search(10, $notas, true)); // array_search(valor, $array, stirct: True/False) -> busca no array o valor e retorna a chave onde ele estiver armazenado.
+                                          // strict -> procura estritamente se o tipo indicado está presente no array (== ou ===), podendo ser uma string, numero ou qualquer outro tipo.
