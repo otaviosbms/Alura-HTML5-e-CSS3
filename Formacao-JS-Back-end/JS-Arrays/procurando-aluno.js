@@ -1,0 +1,25 @@
+const alunos = ["João", "Juliana", "Ana", "Caio"];
+const medias = [10, 8, 7.5, 9];
+
+const listaDeAlunosEMedias = [alunos, medias];
+
+function exibeNomeENota(aluno){
+    if (listaDeAlunosEMedias[0].includes(aluno)) {// includes() -> verifica se o array possui o item.
+        //const alunos = listaDeAlunosEMedias[0];
+        //const medias = listaDeAlunosEMedias[1];
+
+
+        const [alunos, medias] = listaDeAlunosEMedias;
+        
+        const indice = alunos.indexOf(aluno);// indexOf() -> retorna no indice do parametro.
+
+        const mediaDoAluno = medias[indice];
+
+        console.log(`${aluno} tem a média ${mediaDoAluno}.`);
+
+    } else {
+        console.log("Aluno não encontrado!");
+    }
+}
+
+exibeNomeENota("João");
