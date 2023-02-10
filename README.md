@@ -1,2 +1,2 @@
 # Alura
-exercicios e exemplos dos cursos da Alura.
+exercicios e atividades dos cursos da Alura.
