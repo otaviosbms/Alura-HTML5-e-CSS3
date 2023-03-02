@@ -32,3 +32,9 @@ list($nome, $sobrenome) = explode(' ', $nome);
 
 echo 'Nome: '.$nome.PHP_EOL;
 echo 'Sobreome: '.$sobrenome.PHP_EOL;
+
+$csv = 'Vinicius Dias,24,vinicius@alura.com.br';
+var_dump(explode(',',$csv));
+
+// \/ "APARA" (as pontas) a string removendo espaços por padrão, podendo também remover espaçoes denominados \/
+echo trim($email) . PHP_EOL;
