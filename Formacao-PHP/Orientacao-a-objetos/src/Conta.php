@@ -19,6 +19,8 @@ class Conta
     private $nomeTitular;
     private $saldo = 0;
 
+    //operações:
+
     public function sacar(float $valorASacar): void
     {
         if ($valorASacar > $this->saldo){ // $this se refere ao objeto que "chamou" o método
@@ -49,4 +51,34 @@ class Conta
             $contaDestino->depositar($valorATransferir);
         
     }
+
+    //definições:
+
+    public function defineCpfTitular(string $cpf):void
+    {
+        $this->cpfTitular = $cpf; 
+    }
+
+    public function defineNomeTitular(string $nome):void
+    {
+        $this->nomeTitular = $nome; 
+    }
+
+    //chamadas:
+
+    public function recuperarSaldo(): float
+    {
+        return $this->saldo;
+    }
+
+    public function recuperarCpfTitular(): string
+    {
+        return $this->cpfTitular;
+    }
+
+    public function recuperarNomeTitular(): string
+    {
+        return $this->nomeTitular;
+    }
+
 }
