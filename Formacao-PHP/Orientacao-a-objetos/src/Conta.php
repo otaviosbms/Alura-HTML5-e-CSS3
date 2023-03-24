@@ -21,6 +21,7 @@ class Conta
     private $cpfTitular;
     private $nomeTitular;
     private $saldo;
+    private static $numeroDeContas = 0; // static: atributo que diz respeito APENAS A CLASSE (FORMA), não tendo relação com os objetos/instancias .
 
     // \ METODO CONSTRUTOR / 
     // metodos construtores devem ser usados apenas para inicializar a instancia de forma válida.
@@ -33,6 +34,7 @@ class Conta
         $this->validaNomeTitular($nomeTitular);
         $this->nomeTitular = $nomeTitular;
         $this->saldo = 0;
+        self::$numeroDeContas++; // nomedaclass:: ou self:: -> Acessa as informações estaticas da classe
     }
 
     // MÉTODOS PÚBLICOS:
@@ -98,6 +100,12 @@ class Conta
         return $this->nomeTitular;
     }
 
+    public static function recuperarNumeroDeContas(): int // static: atributo que diz respeito APENAS A CLASSE (FORMA), não tendo relação com os objetos/instancias .
+    {
+        return self::$numeroDeContas;
+    }
+
+
     // MÉTODOS PRIVADOS (de uso exclusivo da class).
 
     private function validaNomeTitular(string $nomeTitular)
@@ -107,4 +115,5 @@ class Conta
             exit();
         }
     }
+
 }
