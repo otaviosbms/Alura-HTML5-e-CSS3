@@ -37,6 +37,17 @@ class Conta
         self::$numeroDeContas++; // nomedaclass:: ou self:: -> Acessa as informações estaticas da classe
     }
 
+    // \ MÉTODO DESTRUTOR /
+    // quando um objeto perde ou é criado sem uma variavel de endereço.
+    // OBS: O metodo destrutor é AUTOMATICO, ou seja, a função dele craida na class é apenas usada como um aproveitador do instante onde o objeto é apagado para a aplicação de novas funcionalidades
+
+    // NESTE CASO: metodo destrutor informa ao contador que remove um item do numero de contas caso um obejeto seja apagado. 
+    public function __destruct()
+    {
+        self::$numeroDeContas--;
+    }
+
+
     // MÉTODOS PÚBLICOS:
 
     //operações:
