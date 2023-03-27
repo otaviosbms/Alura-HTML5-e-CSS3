@@ -18,8 +18,7 @@ class Conta
 
     // ATRIBUTOS DEVEM SER PRIVADOS.
 
-    private $cpfTitular;
-    private $nomeTitular;
+    private $titular;
     private $saldo;
     private static $numeroDeContas = 0; // static: atributo que diz respeito APENAS A CLASSE (FORMA), não tendo relação com os objetos/instancias .
 
@@ -27,12 +26,10 @@ class Conta
     // metodos construtores devem ser usados apenas para inicializar a instancia de forma válida.
     // Métodos que são chmados automaticamente assim que um objeto é criado
 
-    public function __construct(string $cpfTitular, string $nomeTitular)
+    public function __construct(Titular $titular)
     {
         // pré definições da criação da conta
-        $this->cpfTitular = $cpfTitular;
-        $this->validaNomeTitular($nomeTitular);
-        $this->nomeTitular = $nomeTitular;
+        $this-> titular = $titular;
         $this->saldo = 0;
         self::$numeroDeContas++; // nomedaclass:: ou self:: -> Acessa as informações estaticas da classe
     }
@@ -101,14 +98,14 @@ class Conta
         return $this->saldo;
     }
 
-    public function recuperarCpfTitular(): string
-    {
-        return $this->cpfTitular;
-    }
-
     public function recuperarNomeTitular(): string
     {
-        return $this->nomeTitular;
+        return $this->titular->recuperarNome();
+    }
+
+    public function recuperarCpfTitular(): string
+    {
+        return $this->titular->recuperarCpf();
     }
 
     public static function recuperarNumeroDeContas(): int // static: atributo que diz respeito APENAS A CLASSE (FORMA), não tendo relação com os objetos/instancias .
@@ -116,15 +113,8 @@ class Conta
         return self::$numeroDeContas;
     }
 
-
     // MÉTODOS PRIVADOS (de uso exclusivo da class).
 
-    private function validaNomeTitular(string $nomeTitular)
-    {
-        if (strlen($nomeTitular) < 5){
-            echo "O nome precisa ter no mínimo 5 caracteres.";
-            exit();
-        }
-    }
+
 
 }
