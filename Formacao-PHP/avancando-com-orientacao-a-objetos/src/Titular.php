@@ -1,5 +1,6 @@
 <?php
 
+//titular é uma pessoa
 class Titular extends Pessoa // extends : clona uma classe já existente podendo realizar alterações 
 {
 
@@ -7,9 +8,7 @@ class Titular extends Pessoa // extends : clona uma classe já existente podendo
 
     public function __construct(CPF $cpf, string $nome, Endereco $endereco)
     {
-        $this->cpf = $cpf;
-        $this->validaNomeTitular($nome);
-        $this->nome = $nome;
+        parent::__construct($nome, $cpf); // utiliza o construtor da classe Pai, ou seja, a classe Pessoa.
         $this -> endereco = $endereco;
     }
 
