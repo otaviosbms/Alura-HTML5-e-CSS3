@@ -1,28 +1,30 @@
 <?php
 
+namespace Alura\Banco\Modelo;
+
 class Pessoa
 {
 
-    // atributos protected conseguem ser acessados de dentro de suas classes filhas.
+    // atributos protected conseguem ser acessados de dentro de suas classes filhas
 
     protected $nome;
     private $cpf;
 
     public function __construct(string $nome, CPF $cpf)
     {
-        $this-> validaNomeTitular($nome);
-        $this -> nome = $nome;
-        $this -> cpf = $cpf;
+        $this->validaNomeTitular($nome);
+        $this->nome = $nome;
+        $this->cpf = $cpf;
     }
 
     public function recuperaNome(): string
     {
-        return $this -> nome;
+        return $this->nome;
     }
 
     public function recuperaCpf(): string
     {
-        return $this -> cpf -> recuperaNumero();
+        return $this->cpf->recuperaNumero();
     }
 
     protected function validaNomeTitular(string $nomeTitular)
@@ -32,5 +34,4 @@ class Pessoa
             exit();
         }
     }
-
 }
