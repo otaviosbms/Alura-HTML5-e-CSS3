@@ -2,7 +2,7 @@
 
 namespace Alura\Banco\Modelo;
 
-class Pessoa
+abstract class Pessoa
 {
 
     // atributos protected conseguem ser acessados de dentro de suas classes filhas
