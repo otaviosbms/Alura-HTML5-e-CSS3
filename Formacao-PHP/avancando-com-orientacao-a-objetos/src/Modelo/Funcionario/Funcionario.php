@@ -9,19 +9,14 @@ use Alura\Banco\Modelo\Pessoa;
 // funcionario é uma pessoa
 abstract class Funcionario extends Pessoa
 {
-    private $cargo;
+
     private $salario;
 
-    public function __construct(string $nome, CPF $cpf, string $cargo, float $salario)
+    public function __construct(string $nome, CPF $cpf, float $salario)
     {
         parent::__construct($nome, $cpf); // utiliza o construtor da classe Pai, ou seja, a classe Pessoa
         $this->cargo = $cargo;
         $this->salario = $salario;
-    }
-
-    public function recuperaCargo(): string
-    {
-        return $this->cargo;
     }
 
     public function alteraNome(string $nome): void
@@ -34,7 +29,7 @@ abstract class Funcionario extends Pessoa
     {
         if ($valorAumento < 0){
             echo "Aumento deve ser positivo";
-            return
+            return;
         }
 
         $this -> salario += $valorAumento;
@@ -45,8 +40,6 @@ abstract class Funcionario extends Pessoa
         return $this-> salario;
     }
 
-    public function calculaBonificacao(): float
-    {
-        return $this-> salario * 0.1;
-    }
+    abstract public function calculabonificacao(): float;
+
 }
