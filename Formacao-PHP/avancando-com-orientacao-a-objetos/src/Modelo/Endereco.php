@@ -13,8 +13,11 @@ namespace Alura\Banco\Modelo;
  * 
  */
 
-class Endereco
+final class Endereco
 {
+
+    use AcessoPropriedades; // copia o codigo do arquivo trait para dentro desta classe sem a necessidade de herdar de outra classe.
+
     private $cidade;
     private $bairro;
     private $rua;
@@ -51,13 +54,6 @@ class Endereco
     public function __toString():string // MÉTODO __toString = quando um objeto da classe é apenas chamado, este método tem a capacidade de formatar a mensagem, ex: echo $teste;
     {
         return "{$this->rua}, {$this->numero}, {$this->bairro}, {$this->cidade}";
-    }
-
-    public function __get(string $nomeAtributo) // MÉTODO __get = faz com que ao chamar um item diretamente no objeto, ele modifique a forma que será exibido ex: echo $teste->nome;
-    {
-        //Rua->recuperaRua
-        $metodo = 'recupera'. ucfirst($nomeAtributo);// ucfirst() = Primeira letra maiuscula
-        echo $this->$metodo();
     }
 
 }

@@ -30,12 +30,12 @@ abstract class Conta // por ser "abstrata", a class conta se torna apenas um con
         $tarifaSaque = $valorASacar * $this-> percentualTarifa();
         $valorSaque = $valorASacar + $tarifaSaque;
 
-        if ($$valorSaque > $this->saldo) {
+        if ($valorSaque > $this->saldo) {
             echo "Saldo indisponível";
             return;
         }
 
-        $this->saldo -= $$valorSaque;
+        $this->saldo -= $valorSaque;
     }
 
     public function deposita(float $valorADepositar): void

@@ -15,13 +15,13 @@ abstract class Funcionario extends Pessoa
     public function __construct(string $nome, CPF $cpf, float $salario)
     {
         parent::__construct($nome, $cpf); // utiliza o construtor da classe Pai, ou seja, a classe Pessoa
-        $this->cargo = $cargo;
+
         $this->salario = $salario;
     }
 
     public function alteraNome(string $nome): void
     {
-        $this->validaNomeTitular($nome);
+        $this->validaNome($nome);
         $this->nome = $nome;
     }
 

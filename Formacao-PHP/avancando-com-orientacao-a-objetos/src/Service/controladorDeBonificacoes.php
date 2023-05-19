@@ -11,7 +11,7 @@ class ControladorDeBonificacoes
 
     public function adicionaBonificacaoDe(Funcionario $funcionario)
     {
-        $funcionario->totalBonificacoes += $funcionario->calculaBonificacao();
+        $this->totalBonificacoes += $funcionario->calculaBonificacao();
     }
 
     public function recuperaTotal(): float
