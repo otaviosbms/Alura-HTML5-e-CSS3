@@ -1,2 +1,2 @@
 # Alura
-Projetos de treinamentos Alura.
+Arquivos de cursos da Alura.
